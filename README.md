@@ -64,11 +64,20 @@ This is an lite version of the original auto-focus-assistant. In this project, w
   ![image](https://user-images.githubusercontent.com/71208694/234904598-e6157f63-2e73-4427-8ba5-1e947c6ab19e.png)
 
 ### 团队分工/team division
-+ jianyu.lai : 负责逆向铁头原力N系统的通信协议和整体逻辑框架搭建，后期负责系统的测试
-+ ? : 负责stm32选型和调试触摸屏，后期可能需要与雷达整合显示
-+ ? : 负责雷达数据的读取，后期可能需要跟进外包硬件制作
++ 赖建宇 : 负责逆向铁头原力N系统的通信协议和整体逻辑框架搭建
++ 黄桦 : 负责stm32选型和调试触摸屏，与雷达整合显示波形图
++ 李其銮 : 负责雷达数据的读取与处理
 
 ### 软件结构/software structure
++ 本项目软件架构较为简单，主要分为motor马达模块，serial串口模块，screen触摸屏模块
++ motor模块对此前Auto Focus Assistant项目中的多个函数进行了移植和重构，包括拉格朗日插值函数、dis2pose距离转电机位置函数
++ serial串口模块包括UASRT1、USART2和USART3
+  + USART1用于接入串口助手实现离线调试，波特率设置为115200
+  + USART2接激光雷达实现距离检测，波特率设置为230400
+  + USART3用于和原力N通信，其中RX接控制手柄的TX，TX接电机的RX，波特率设置为115200
+  + 示意图如下：
+  + ![b491169612154ddeea63de25a276a97](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/2ef850d8-95ca-4261-9e30-4ea071b4f70f)
+
 
 ### 物料清单/BOM
 
