@@ -36,7 +36,8 @@ This is an lite version of the original auto-focus-assistant. In this project, w
   同时，2D激光雷达成本相对低廉，为未来的商业化保留了可能性<br>
 + 最终，我们选择了来自乐动机器人的LD19激光雷达<br>
   它拥有最远达12m的探测距离，采用905nm波长可以规避阳光干扰，扫描性能足够满足本项目的需求<br>
-  ![image](https://user-images.githubusercontent.com/71208694/234904820-214e29d3-c23d-40a4-8e40-be20a173236b.png)
+  ![image](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/281fdac5-efaf-42a9-bc72-0a3544252dc5)
+
 
 #### 控制器/controller
 + 控制器用于实现“手自一体”的自动对焦模式选择和功能切换<br>
@@ -54,6 +55,8 @@ This is an lite version of the original auto-focus-assistant. In this project, w
   同时，处理器也用于协调系统各部分工作，与用户进行交互，并完成雷达俯视图的绘制(在触摸屏上)<br>
 + 此处选用的处理器是STM32单片机<br>
   因为本项目是STM32单片机课程设计，同时STM32兼顾了低价和高性能的需求<br>
++ ![image](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/6c590b1c-1cbb-42c2-bde6-71545a6c7df5)
+
 
 #### 执行器/operator
 + 执行器是执行对焦动作的器件，一般为电机<br>
@@ -88,9 +91,13 @@ This is an lite version of the original auto-focus-assistant. In this project, w
 
 
 + screen模块用于驱动触摸屏，绘制触摸屏UI
+  + 前期的UI构思如下：
+  + ![f67467d78a86b0ecbd9002773f80ea2](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/34bf76fa-935a-4b91-84d9-c75f118deffd)
+
 
 ### 物料清单/BOM
 + 铁头原力N跟焦电机及手柄套装 * 1
++ 15mm 碳纤维管固定支架 * 1
 + STM32F103ZET6带320x240显示屏 * 1
 + micro USB 转 杜邦线 * 2
 + zh1.5 公口 转 2.54杜邦线 * 1 
@@ -98,3 +105,7 @@ This is an lite version of the original auto-focus-assistant. In this project, w
 + (3D打印固定件若干)
 
 ### 使用方法/user instruction
++ 按照接线示意图，连接单片机、控制手柄、雷达和跟焦电机
++ 先开启手柄电源，此时手柄为跟焦电机提供8V供电，电机启动
++ 再启动单片机，默认进行上电行程自动校准，随后进入自动对焦或手动辅助对焦状态
++ 此时你可以在雷达示波器上看到雷达波形图和当前电机位置指示，并可以通过按键切换工作模式
