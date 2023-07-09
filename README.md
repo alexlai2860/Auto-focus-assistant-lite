@@ -93,10 +93,17 @@ This is an lite version of the original auto-focus-assistant. In this project, w
 + screen模块用于驱动触摸屏，绘制触摸屏UI
   + 前期的UI构思如下：
   + ![f67467d78a86b0ecbd9002773f80ea2](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/34bf76fa-935a-4b91-84d9-c75f118deffd)
+  + ![image](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/e78ee4f0-bfad-45d5-8038-b18608c17ed9)
 
+  + 后期成品实际UI如下
+  + ![image](https://github.com/alexlai2860/Auto-focus-assistant-lite/assets/71208694/32634e00-8fd6-4b96-8cdf-5816dffb8fc0)
+  + UI说明：显示屏从上到下一次为状态显示栏、对焦波形图和相应文字说明。
+  + 状态显示栏部分，左侧ON/OFF启动时字体颜色为绿色，关闭时为红色，右侧Auto和Manual可以通过按键切换，Auto为自动对焦模式（由单片机接管电机控制），Manual为手动对焦模式（通过滚轮编码器进行电机控制）。
+  + 波形图部分，蓝色的曲线代表当前摄影机前方的测距数据，共由40个点构成，理论刷新率为10hz；绿色直线则代表当前手柄滚轮所指示的位置，会按照滚轮位置的变化而上下移动。波形图横坐标为-40°~40°，即最大对焦视场角为80°；波形图纵坐标为0-10m，即最远测距有效值为10m；波形图精度为10cm。
 
 ### 物料清单/BOM
 + 铁头原力N跟焦电机及手柄套装 * 1
++ 乐动机器人LD19激光雷达 * 1
 + 15mm 碳纤维管固定支架 * 1
 + STM32F103ZET6带320x240显示屏 * 1
 + micro USB 转 杜邦线 * 2
@@ -108,4 +115,4 @@ This is an lite version of the original auto-focus-assistant. In this project, w
 + 按照接线示意图，连接单片机、控制手柄、雷达和跟焦电机
 + 先开启手柄电源，此时手柄为跟焦电机提供8V供电，电机启动
 + 再启动单片机，默认进行上电行程自动校准，随后进入自动对焦或手动辅助对焦状态
-+ 此时你可以在雷达示波器上看到雷达波形图和当前电机位置指示，并可以通过按键切换工作模式
++ 此时你可以在雷达示波器上看到雷达波形图和当前电机位置指示，并可以通过按键切换工作模式（见软件架构部分）
